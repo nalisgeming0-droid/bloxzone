@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloxZone ID — Digital Store, Roblox Joki & Verification Service</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#1e1b4b',
+                            accent: '#10b981',
+                            neon: '#06b6d4'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: linear-gradient(135deg, rgba(31, 41, 55, 0.65) 0%, rgba(17, 24, 39, 0.85) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+        .glass-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 12px 30px -10px rgba(79, 70, 229, 0.35);
+        }
+        .glow-text {
+            text-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes auraPulse {
+            0%, 100% { transform: scale(1) translate(-50%, -50%); opacity: 0.5; filter: blur(100px); }
+            50% { transform: scale(1.3) translate(-45%, -55%); opacity: 0.85; filter: blur(130px); }
+        }
+        .cyber-aura-1 { animation: auraPulse 7s ease-in-out infinite alternate; }
+        .cyber-aura-2 { animation: auraPulse 9s ease-in-out infinite alternate-reverse; }
+
+        button, a.btn-interactive {
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        button:active, a.btn-interactive:active {
+            transform: scale(0.94) !important;
+            filter: brightness(1.2);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0b0f19; }
+        ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #374151; }
+
+        .product-img-header {
+            height: 150px;
+            width: 100%;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            background: #111827;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-brand-500 selection:text-white relative">
+
+    <div id="bg-wallpaper-container" class="fixed inset-0 pointer-events-none z-0 bg-cover bg-center transition-all duration-500 opacity-25"></div>
+
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="cyber-aura-1 absolute top-1/4 left-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-brand-600/30 via-indigo-600/20 to-purple-600/20 rounded-full"></div>
+        <div class="cyber-aura-2 absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-to-tr from-emerald-500/20 via-cyan-500/20 to-blue-600/20 rounded-full"></div>
+    </div>
+
+    <header class="sticky top-0 z-40 glass-panel border-b border-gray-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-600 via-indigo-500 to-emerald-400 p-0.5 shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+                    <div class="w-full h-full bg-gray-950 rounded-[10px] flex items-center justify-center font-black text-xl text-white tracking-wider">
+                        BZ
+                    </div>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-extrabold text-lg sm:text-xl tracking-tight text-white group-hover:text-indigo-400 transition-colors">BloxZone ID</span>
+                        <span class="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> Online
+                        </span>
+                    </div>
+                    <p class="text-[11px] text-gray-400 font-medium hidden sm:block">Digital Store • Virtual No • Roblox • Joki AFK</p>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-1 bg-gray-900/60 p-1.5 rounded-2xl border border-gray-800">
+                <button onclick="scrollToSection('joki-section')" class="px-4 py-2 rounded-xl text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/80 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-egg text-amber-400"></i> Joki AFK Steal Egg
+                </button>
+                <button onclick="scrollToSection('roblox-section')" class="px-4 py-2 rounded-xl text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/80 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-gamepad text-emerald-400"></i> Roblox
+                </button>
+                <button onclick="scrollToSection('nokos-section')" class="px-4 py-2 rounded-xl text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/80 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-sim-card text-indigo-400"></i> Virtual No
+                </button>
+                <button onclick="scrollToSection('verification-section')" class="px-4 py-2 rounded-xl text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-800/80 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-user-shield text-cyan-400"></i> Verifikasi
+                </button>
+            </nav>
+
+            <div class="flex items-center gap-2.5">
+                <button id="bgm-toggle-btn" onclick="toggleBGM()" class="px-3 py-2 rounded-xl bg-purple-950/60 hover:bg-purple-900/80 text-purple-300 border border-purple-500/30 transition-all text-xs flex items-center gap-2 shadow-lg shadow-purple-900/20" title="Putar Musik Backsound Toko">
+                    <i id="bgm-icon" class="fa-solid fa-music text-purple-400"></i>
+                    <span id="bgm-status-text" class="hidden sm:inline font-bold">Musik ON</span>
+                </button>
+
+                <!-- Check Order Button -->
+                <button onclick="openCheckOrderModal()" class="px-3.5 py-2 rounded-xl bg-brand-600/20 hover:bg-brand-600/30 text-indigo-300 hover:text-white text-xs sm:text-sm font-semibold border border-brand-500/40 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-magnifying-glass text-indigo-400"></i>
+                    <span class="font-bold">Cek Pesanan</span>
+                </button>
+
+                <!-- Admin Button -->
+                <button onclick="openAdminModal()" class="p-2.5 rounded-xl bg-gray-900/80 hover:bg-gray-800 text-gray-400 hover:text-white border border-gray-800 transition-all text-sm" title="Panel Admin">
+                    <i class="fa-solid fa-gear"></i>
+                </button>
+
+                <!-- Direct WA Contact -->
+                <a id="header-wa-link" href="https://wa.me/6283129970042" target="_blank" class="hidden lg:flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 text-xs sm:text-sm font-bold border border-emerald-500/30 transition-all">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>CS Online</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section class="relative py-12 lg:py-16 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-semibold mb-6 animate-pulse">
+                    <i class="fa-solid fa-shield-halved text-emerald-400"></i> Layanan Instan, Otomatis & Terpercaya
+                </div>
+                
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4 leading-tight">
+                    Layanan Game & Digital Roblox <br>
+                    <span class="gradient-text">BloxZone ID Store</span>
+                </h1>
+                
+                <p class="max-w-2xl mx-auto text-sm sm:text-base text-gray-400 mb-8 leading-relaxed">
+                    Solusi terpercaya untuk <strong class="text-gray-200">Joki AFK Steal an Egg</strong>, 
+                    <strong class="text-gray-200">Akun Roblox Legal</strong>, <strong class="text-gray-200">Bantuan Verifikasi</strong>, 
+                    dan <strong class="text-gray-200">Nomor Virtual (NOKOS)</strong>.
+                </p>
+
+                <!-- Category Switch Tabs -->
+                <div id="category-selector" class="flex flex-wrap items-center justify-center gap-2.5">
+                    <button onclick="switchTab('joki')" id="tab-btn-joki" class="tab-btn px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm transition-all flex items-center gap-2 bg-gradient-to-r from-amber-600 to-amber-500 text-white shadow-lg shadow-amber-500/25">
+                        <i class="fa-solid fa-egg"></i> Joki Steal Egg
+                    </button>
+                    <button onclick="switchTab('roblox')" id="tab-btn-roblox" class="tab-btn px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm transition-all flex items-center gap-2 bg-gray-900/80 text-gray-400 hover:text-white border border-gray-800">
+                        <i class="fa-solid fa-gamepad"></i> Roblox
+                    </button>
+                    <button onclick="switchTab('verification')" id="tab-btn-verification" class="tab-btn px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm transition-all flex items-center gap-2 bg-gray-900/80 text-gray-400 hover:text-white border border-gray-800">
+                        <i class="fa-solid fa-user-shield"></i> Verifikasi Roblox
+                    </button>
+                    <button onclick="switchTab('nokos')" id="tab-btn-nokos" class="tab-btn px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm transition-all flex items-center gap-2 bg-gray-900/80 text-gray-400 hover:text-white border border-gray-800">
+                        <i class="fa-solid fa-sim-card"></i> Nokos Virtual
+                    </button>
+                    <button onclick="switchTab('custom')" id="tab-btn-custom" class="tab-btn px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm transition-all flex items-center gap-2 bg-gray-900/80 text-gray-400 hover:text-white border border-gray-800">
+                        <i class="fa-solid fa-plus-circle"></i> Produk Spesial
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="joki-section" class="py-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-6">
+                <div class="flex items-center gap-2 text-amber-400 text-sm font-bold uppercase tracking-wider mb-1">
+                    <i class="fa-solid fa-egg"></i> Produk Unggulan — Joki AFK Map Steal an Egg
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Layanan Joki AFK Steal an Egg</h2>
+                <p class="text-xs sm:text-sm text-gray-400 mt-1">Sistem AFK 24/7 non-stop, pengerjaan rapi, aman, dan bergaransi.</p>
+            </div>
+
+            <div id="joki-cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"></div>
+
+            <!-- Custom Days Interactive Calculator -->
+            <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-amber-500/30 bg-amber-500/5 shadow-2xl relative overflow-hidden">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+                    <div class="space-y-2 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold">
+                            <i class="fa-solid fa-sliders"></i> Fitur Hitung Hari Bebas
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-extrabold text-white">Hitung Durasi Hari Kustom</h3>
+                        <p class="text-xs sm:text-sm text-gray-300 max-w-lg">Bebas tentukan durasi hari joki AFK Steal an Egg (1 - 30 hari). Harga otomatis dihitung secara akurat!</p>
+                    </div>
+
+                    <div class="w-full lg:w-auto bg-gray-950/90 p-5 rounded-2xl border border-gray-800 flex flex-col sm:flex-row items-center gap-4">
+                        <div class="w-full sm:w-auto">
+                            <label class="block text-[11px] font-bold text-gray-400 uppercase mb-1">Pilih Hari (1 - 30)</label>
+                            <div class="flex items-center gap-2">
+                                <input type="number" id="custom-joki-days" min="1" max="30" value="1" oninput="calculateCustomJokiPrice()" class="w-28 bg-gray-900 text-white font-extrabold rounded-xl px-3 py-2.5 border border-amber-500/40 text-center outline-none focus:ring-2 focus:ring-amber-500/50">
+                                <span class="text-sm font-bold text-gray-300">Hari</span>
+                            </div>
+                        </div>
+
+                        <div class="w-full sm:w-auto border-t sm:border-t-0 sm:border-l border-gray-800 pt-3 sm:pt-0 sm:pl-4 flex sm:flex-col justify-between items-center sm:items-start">
+                            <div class="text-[10px] text-gray-400">Total Biaya:</div>
+                            <div id="custom-joki-calculated-price" class="text-xl font-black text-amber-400">Rp 5.000</div>
+                        </div>
+
+                        <button onclick="initiateCustomJokiPurchase()" class="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white font-extrabold text-xs rounded-xl transition-all shadow-lg shadow-amber-500/30 shrink-0 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cart-shopping"></i> Pesan Custom
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roblox-section" class="py-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hidden">
+            <div class="mb-6">
+                <div class="flex items-center gap-2 text-emerald-400 text-sm font-bold uppercase tracking-wider mb-1">
+                    <i class="fa-solid fa-gamepad"></i> Roblox Official
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Akun Roblox Polos Legal</h2>
+                <p class="text-xs sm:text-sm text-gray-400 mt-1">Akun Roblox terverifikasi umur, siap pakai untuk gaming & trading.</p>
+            </div>
+
+            <div class="glass-panel p-4 rounded-2xl border-l-4 border-l-amber-500 bg-amber-500/5 mb-8 flex items-start gap-3">
+                <i class="fa-solid fa-circle-exclamation text-amber-400 text-lg mt-0.5"></i>
+                <div class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                    <strong class="text-amber-300 font-bold">Ketentuan Akun:</strong> 
+                    Gunakan akun sesuai Terms of Service resmi Roblox. Dilarang dipergunakan untuk tindakan terlarang.
+                </div>
+            </div>
+
+            <div id="roblox-cards-container" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+        </section>
+
+        <section id="verification-section" class="py-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hidden">
+            <div class="mb-6">
+                <div class="flex items-center gap-2 text-cyan-400 text-sm font-bold uppercase tracking-wider mb-1">
+                    <i class="fa-solid fa-user-shield"></i> Jasa Verifikasi Roblox
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Layanan Verifikasi Akun Legal</h2>
+                <p class="text-xs sm:text-sm text-gray-400 mt-1">Bantuan asistensi verifikasi akun resmi Roblox secara aman.</p>
+            </div>
+
+            <div class="glass-panel p-4 rounded-2xl border-l-4 border-l-cyan-500 bg-cyan-500/5 mb-8 flex items-start gap-3">
+                <i class="fa-solid fa-shield-check text-cyan-400 text-lg mt-0.5"></i>
+                <div class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                    <strong class="text-cyan-300 font-bold">Jaminan Keamanan:</strong> 
+                    BloxZone ID hanya membantu asistensi legal sesuai aturan platform resmi Roblox tanpa melakukan tindakan manipulatif.
+                </div>
+            </div>
+
+            <div id="verification-cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+        </section>
+
+        <section id="nokos-section" class="py-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hidden">
+            <div class="mb-6">
+                <div class="flex items-center gap-2 text-brand-400 text-sm font-bold uppercase tracking-wider mb-1">
+                    <i class="fa-solid fa-sim-card"></i> Virtual Number
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Nomor Virtual (NOKOS) OTP</h2>
+                <p class="text-xs sm:text-sm text-gray-400 mt-1">Layanan nomor virtual untuk registrasi SMS OTP dari berbagai platform.</p>
+            </div>
+
+            <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-gray-800 shadow-xl relative overflow-hidden">
+                <div id="nokos-banner-container" class="mb-6 rounded-2xl overflow-hidden hidden">
+                    <img id="nokos-banner-img" src="" alt="Nokos Banner" class="w-full h-40 object-cover">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">
+                            <i class="fa-solid fa-globe text-indigo-400 mr-1"></i> Pilih Negara
+                        </label>
+                        <div class="relative">
+                            <select id="nokos-country-select" onchange="updateNokosPrice()" class="w-full bg-gray-950 text-white rounded-2xl px-4 py-3.5 border border-gray-800 focus:border-brand-500 outline-none text-sm appearance-none cursor-pointer">
+                            </select>
+                            <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none text-xs"></i>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">
+                            <i class="fa-solid fa-cubes text-cyan-400 mr-1"></i> Pilih Aplikasi / Platform
+                        </label>
+                        <div class="relative">
+                            <select id="nokos-app-select" onchange="updateNokosPrice()" class="w-full bg-gray-950 text-white rounded-2xl px-4 py-3.5 border border-gray-800 focus:border-brand-500 outline-none text-sm appearance-none cursor-pointer">
+                            </select>
+                            <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none text-xs"></i>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-950/80 rounded-2xl p-4 border border-gray-800/80 flex flex-col justify-between">
+                        <div class="text-xs text-gray-400 flex justify-between items-center mb-1">
+                            <span>Harga Terkalkulasi:</span>
+                            <span class="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full font-bold">Ready Instant</span>
+                        </div>
+                        <div class="flex items-baseline justify-between">
+                            <div id="nokos-calculated-price" class="text-2xl font-black text-indigo-400">Rp 0</div>
+                            <button onclick="initiateNokosPurchase()" class="px-5 py-2.5 bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-bold text-xs rounded-xl transition-all shadow-lg shadow-indigo-600/30 flex items-center gap-2">
+                                <i class="fa-solid fa-cart-shopping"></i> Beli Nokos
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-gray-800">
+                    <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Paling Banyak Dicari</div>
+                    <div id="nokos-quick-list" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="custom-section" class="py-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hidden">
+            <div class="mb-6">
+                <div class="flex items-center gap-2 text-purple-400 text-sm font-bold uppercase tracking-wider mb-1">
+                    <i class="fa-solid fa-box-open"></i> Katalog Produk Lainnya
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Produk Terbaru & Event Spesial</h2>
+                <p class="text-xs sm:text-sm text-gray-400 mt-1">Daftar item digital dan jasa tambahan yang dikelola langsung oleh Admin.</p>
+            </div>
+
+            <div id="custom-products-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+        </section>
+    </main>
+
+    <footer class="glass-panel border-t border-gray-800/80 mt-16 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+                <div class="flex items-center gap-2 font-bold text-white text-lg">
+                    <span>BloxZone ID</span>
+                    <span class="text-xs font-normal text-gray-400">— Digital Store & Roblox Joki</span>
+                </div>
+                <p class="text-xs text-gray-500 mt-1">© 2026 BloxZone ID. Automatic Payment & High Quality Service.</p>
+            </div>
+            
+            <div class="flex items-center gap-4 text-xs text-gray-400">
+                <a id="footer-wa-link" href="https://wa.me/6283129970042" target="_blank" class="hover:text-emerald-400 transition-colors flex items-center gap-1">
+                    <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp CS
+                </a>
+                <span>•</span>
+                <button onclick="openCheckOrderModal()" class="hover:text-indigo-400 transition-colors">Cek Status Pesanan</button>
+            </div>
+        </div>
+    </footer>
+
+    <div id="checkout-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden">
+        <div class="glass-panel w-full max-w-lg rounded-3xl p-6 sm:p-8 border border-gray-800 shadow-2xl relative max-h-[92vh] overflow-y-auto">
+            <button onclick="closeCheckoutModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white text-lg z-10">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Checkout Step 1: Customer Info -->
+            <div id="checkout-step-1">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-xl bg-brand-600/20 border border-brand-500/30 flex items-center justify-center text-brand-400">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-extrabold text-white">Ringkasan Pemesanan</h3>
+                        <p class="text-xs text-gray-400">Isi kontak aktif untuk verifikasi pesanan Anda</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-950 p-4 rounded-2xl border border-gray-800 mb-6 space-y-2">
+                    <div class="flex justify-between text-xs text-gray-400">
+                        <span>Kategori:</span>
+                        <span id="summary-category" class="font-bold text-indigo-400">-</span>
+                    </div>
+                    <div class="flex justify-between text-sm font-bold text-white">
+                        <span id="summary-product-name">-</span>
+                        <span id="summary-price" class="text-indigo-400">Rp 0</span>
+                    </div>
+                    <div id="summary-details" class="text-xs text-gray-400 pt-2 border-t border-gray-900 flex justify-between">
+                        <span>Detail:</span>
+                        <span id="summary-detail-text" class="text-gray-300 font-medium">-</span>
+                    </div>
+                </div>
+
+                <form onsubmit="submitOrderForm(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Nama Pembeli *</label>
+                        <input type="text" id="cust-name" required placeholder="Contoh: Budi Santoso" class="w-full bg-gray-950 text-white rounded-xl px-4 py-3 border border-gray-800 focus:border-indigo-500 outline-none text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-1">Nomor WhatsApp *</label>
+                        <input type="tel" id="cust-phone" required placeholder="Contoh: 0831xxxxxxx" class="w-full bg-gray-950 text-white rounded-xl px-4 py-3 border border-gray-800 focus:border-indigo-500 outline-none text-sm">
+                    </div>
+
+                    <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-extrabold text-sm rounded-xl shadow-lg shadow-indigo-600/30 transition-all flex items-center justify-center gap-2 mt-4">
+                        <span>Lanjut Pembayaran QRIS</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Checkout Step 2: Payment QRIS -->
+            <div id="checkout-step-2" class="hidden text-center">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold mb-3">
+                    <i class="fa-solid fa-clock"></i> Batas Pembayaran: <span id="payment-timer">10:00</span>
+                </div>
+
+                <h3 class="text-xl font-extrabold text-white">Pembayaran QRIS Otomatis</h3>
+                <p class="text-xs text-gray-400 mt-1 mb-3">Scan menggunakan e-Wallet (Dana, OVO, Gopay, ShopeePay) / M-Banking.</p>
+
+                <div class="bg-gray-950 p-2.5 rounded-xl border border-gray-800 inline-block mb-3">
+                    <span class="text-xs text-gray-400">Kode Order ID: </span>
+                    <span id="active-order-id" class="text-xs font-mono font-bold text-indigo-400 select-all">BZ-000000</span>
+                </div>
+
+                <div class="bg-white p-4 rounded-2xl max-w-[240px] mx-auto shadow-xl border border-gray-200 relative mb-4">
+                    <img id="qris-image-display" src="" alt="QRIS Merchant" class="w-full h-auto rounded-lg">
+                    <div class="text-[10px] text-gray-800 font-bold mt-2 text-center tracking-widest uppercase">
+                        BLOXZONE ID OFFICIAL
+                    </div>
+                </div>
+
+                <div class="bg-gray-950 p-3 rounded-2xl border border-gray-800 mb-4 max-w-xs mx-auto">
+                    <div class="text-xs text-gray-400">Total Tagihan:</div>
+                    <div id="active-order-total" class="text-2xl font-black text-emerald-400">Rp 0</div>
+                </div>
+
+                <div class="bg-gray-900/90 p-3.5 rounded-2xl border border-gray-800 mb-5">
+                    <div class="text-[11px] text-gray-400 mb-1">Status Sistem:</div>
+                    <div id="status-badge-display" class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold">
+                        <i class="fa-solid fa-spinner animate-spin"></i> Belum Dibayar
+                    </div>
+                </div>
+
+                <button onclick="simulatePaymentSuccess()" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl transition-all shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-check-circle text-base"></i> Konfirmasi Saya Sudah Bayar
+                </button>
+            </div>
+
+            <!-- Checkout Step 3: Account Data Submission (MANDATORY POST PAYMENT) -->
+            <div id="checkout-step-3" class="hidden">
+                <div class="text-center mb-5">
+                    <div class="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-2xl mx-auto mb-3">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-white">Pembayaran QRIS Terverifikasi!</h3>
+                    <p class="text-xs text-gray-300 mt-1">Sistem pembayaran QRIS telah mengonfirmasi pembayaran Anda.</p>
+                </div>
+
+                <!-- Mandatory Form for Joki & Verifikasi -->
+                <div id="account-data-form" class="bg-gray-950 p-5 rounded-2xl border border-amber-500/30 text-left mb-4">
+                    <div class="text-xs text-amber-400 font-extrabold mb-1 flex items-center gap-2">
+                        <i class="fa-solid fa-user-lock"></i> Pengisian Data Akun Pesanan
+                    </div>
+                    <p class="text-[11px] text-gray-400 mb-4">Harap isi data berikut dengan benar untuk memproses pesanan <strong>Verifikasi / Joki Roblox</strong> Anda.</p>
+                    
+                    <form onsubmit="submitAccountData(event)" class="space-y-3">
+                        <div>
+                            <label class="block text-[11px] font-bold text-gray-300 uppercase mb-1">Username Roblox *</label>
+                            <input type="text" id="roblox-usn-input" required placeholder="Username Roblox..." class="w-full bg-gray-900 text-white rounded-xl px-3.5 py-2.5 border border-gray-800 focus:border-amber-500 outline-none text-xs">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold text-gray-300 uppercase mb-1">Password Roblox *</label>
+                            <input type="password" id="roblox-pw-input" required placeholder="Password Roblox..." class="w-full bg-gray-900 text-white rounded-xl px-3.5 py-2.5 border border-gray-800 focus:border-amber-500 outline-none text-xs">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold text-gray-300 uppercase mb-1">Gmail / Email Terkait *</label>
+                            <input type="email" id="roblox-gmail-input" required placeholder="contoh@gmail.com" class="w-full bg-gray-900 text-white rounded-xl px-3.5 py-2.5 border border-gray-800 focus:border-amber-500 outline-none text-xs">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold text-gray-300 uppercase mb-1">Pesan Buat Admin (Opsional)</label>
+                            <textarea id="roblox-msg-input" rows="2" placeholder="Catatan khusus, pin 2FA, atau instruksi joki..." class="w-full bg-gray-900 text-white rounded-xl px-3.5 py-2.5 border border-gray-800 focus:border-amber-500 outline-none text-xs resize-none"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full py-3 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white font-extrabold text-xs rounded-xl shadow-lg shadow-amber-500/30 transition-all flex items-center justify-center gap-2 mt-2">
+                            <i class="fa-solid fa-paper-plane"></i> Submit Data & Mulai Proses
+                        </button>
+                    </form>
+                </div>
+
+                <div id="claim-wa-container" class="hidden">
+                    <div class="bg-gray-900 p-4 rounded-xl border border-gray-800 text-xs text-gray-300 mb-4 text-center">
+                        Pesanan telah tercatat ke sistem! Klik tombol di bawah ini untuk mengonfirmasikan kepada Admin di WhatsApp.
+                    </div>
+                    <a id="wa-redirect-btn" href="#" target="_blank" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm rounded-xl transition-all shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2 mb-3">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Hubungi CS WhatsApp</span>
+                    </a>
+                </div>
+
+                <div class="text-center">
+                    <button onclick="closeCheckoutModal()" class="text-xs text-gray-400 hover:text-white underline">Selesai & Tutup Jendela</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="check-order-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden">
+        <div class="glass-panel w-full max-w-md rounded-3xl p-6 sm:p-8 border border-gray-800 shadow-2xl relative">
+            <button onclick="closeCheckOrderModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-extrabold text-white">Cek Status Pesanan</h3>
+                    <p class="text-xs text-gray-400">Lacak perkembangan joki / verifikasi Anda</p>
+                </div>
+            </div>
+
+            <div class="flex gap-2 mb-6">
+                <input type="text" id="search-order-input" placeholder="Masukkan Order ID (Contoh: BZ-123456)" class="flex-grow bg-gray-950 text-white rounded-xl px-4 py-3 border border-gray-800 focus:border-indigo-500 outline-none text-xs font-mono uppercase">
+                <button onclick="performOrderSearch()" class="px-5 bg-brand-600 hover:bg-brand-500 text-white font-bold rounded-xl text-xs transition-all shrink-0">
+                    Cari Pesanan
+                </button>
+            </div>
+
+            <div id="order-search-result" class="hidden"></div>
+        </div>
+    </div>
+
+    <div id="admin-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md hidden">
+        <div class="glass-panel w-full max-w-4xl rounded-3xl p-6 sm:p-8 border border-gray-800 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeAdminModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white text-lg z-10">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Admin Authentication (Password Not Exposed in UI) -->
+            <div id="admin-auth-gate">
+                <div class="text-center max-w-xs mx-auto py-8">
+                    <div class="w-14 h-14 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-xl font-extrabold text-white mb-2">Login Panel Admin</h3>
+                    <p class="text-xs text-gray-400 mb-4">Masukkan PIN Keamanan Admin Toko</p>
+                    <input type="password" id="admin-pin-input" placeholder="Masukkan PIN Admin" class="w-full bg-gray-950 text-white rounded-xl px-4 py-3 border border-gray-800 text-center font-mono text-sm mb-3 focus:border-brand-500 outline-none">
+                    <button onclick="verifyAdminPin()" class="w-full py-3 bg-brand-600 hover:bg-brand-500 text-white font-bold rounded-xl text-xs transition-all shadow-lg shadow-brand-600/20">
+                        Masuk Admin
+                    </button>
+                </div>
+            </div>
+
+            <!-- Admin Dashboard Content -->
+            <div id="admin-dashboard-content" class="hidden">
+                <div class="flex items-center justify-between pb-4 border-b border-gray-800 mb-6">
+                    <div>
+                        <h3 class="text-xl font-extrabold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-sliders text-indigo-400"></i> Panel Manajemen Toko
+                        </h3>
+                    </div>
+                    <button onclick="logoutAdmin()" class="text-xs text-red-400 hover:underline flex items-center gap-1 font-bold">
+                        <i class="fa-solid fa-right-from-bracket"></i> Keluar
+                    </button>
+                </div>
+
+                <!-- Admin Tabs Navigation -->
+                <div class="flex gap-2 mb-6 border-b border-gray-800 pb-3 overflow-x-auto">
+                    <button onclick="switchAdminTab('orders')" id="admin-tab-orders" class="px-4 py-2 rounded-xl text-xs font-bold bg-brand-600 text-white whitespace-nowrap">
+                        <i class="fa-solid fa-list-check mr-1"></i> Pesanan Masuk
+                    </button>
+                    <button onclick="switchAdminTab('add-product')" id="admin-tab-add-product" class="px-4 py-2 rounded-xl text-xs font-bold bg-gray-900 text-gray-400 hover:text-white whitespace-nowrap">
+                        <i class="fa-solid fa-plus-circle mr-1"></i> Tambah Produk Baru
+                    </button>
+                    <button onclick="switchAdminTab('prices')" id="admin-tab-prices" class="px-4 py-2 rounded-xl text-xs font-bold bg-gray-900 text-gray-400 hover:text-white whitespace-nowrap">
+                        <i class="fa-solid fa-tags mr-1"></i> Setting Harga & Foto
+                    </button>
+                    <button onclick="switchAdminTab('qris')" id="admin-tab-qris" class="px-4 py-2 rounded-xl text-xs font-bold bg-gray-900 text-gray-400 hover:text-white whitespace-nowrap">
+                        <i class="fa-solid fa-qrcode mr-1"></i> QRIS & CS Info
+                    </button>
+                </div>
+
+                <!-- Admin Tab: Incoming Orders & Data Account Verification -->
+                <div id="admin-sub-orders" class="space-y-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Daftar Transaksi Real-Time</span>
+                        <span class="text-[11px] text-indigo-400">Klik status untuk memperbarui pesanan</span>
+                    </div>
+
+                    <div class="overflow-x-auto rounded-2xl border border-gray-800 bg-gray-950">
+                        <table class="w-full text-left text-xs text-gray-300">
+                            <thead class="bg-gray-900 text-gray-400 font-bold border-b border-gray-800">
+                                <tr>
+                                    <th class="p-3">Order ID</th>
+                                    <th class="p-3">Pembeli</th>
+                                    <th class="p-3">Produk</th>
+                                    <th class="p-3">Data Login (Usn / Pw / Email)</th>
+                                    <th class="p-3">Status Pekerjaan</th>
+                                    <th class="p-3 text-right">Aksi Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-orders-table-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Admin Tab: Add New Product (Dynamic Products) -->
+                <div id="admin-sub-add-product" class="space-y-6 hidden">
+                    <div class="bg-gray-950 p-5 rounded-2xl border border-gray-800">
+                        <h4 class="text-sm font-bold text-purple-400 mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-plus-circle"></i> Tambah Produk Baru ke Katalog Spesial
+                        </h4>
+
+                        <form onsubmit="handleAddNewProduct(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-[11px] font-bold text-gray-300 uppercase mb-1">Nama Produk *</label>
+                                    <input type="text" id="new-prod-name" required placeholder="Contoh: Joki AFK 14 Hari / Akun Roblox Sultan" class="w-full bg-gray-900 text-white rounded-xl p-3 text-xs border border-gray-800 outline-none focus:border-brand-500">
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-bold text-gray-300 uppercase mb-1">Harga (Rp) *</label>
+                                    <input type="number" id="new-prod-price" required placeholder="45000" class="w-full bg-gray-900 text-white rounded-xl p-3 text-xs border border-gray-800 outline-none focus:border-brand-500">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-[11px] font-bold text-gray-300 uppercase mb-1">Kategori *</label>
+                                    <select id="new-prod-category" class="w-full bg-gray-900 text-white rounded-xl p-3 text-xs border border-gray-800 outline-none focus:border-brand-500">
+                                        <option value="joki">Joki Roblox</option>
+                                        <option value="verif">Verifikasi Roblox</option>
+                                        <option value="roblox">Akun Roblox</option>
+                                        <option value="nokos">Nokos Virtual</option>
+                                        <option value="spesial">Produk Spesial</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-bold text-gray-300 uppercase mb-1">Foto Produk</label>
+                                    <input type="file" id="new-prod-image" accept="image/*" class="w-full bg-gray-900 text-gray-300 rounded-xl p-2 border border-gray-800 text-xs">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-[11px] font-bold text-gray-300 uppercase mb-1">Deskripsi Singkat *</label>
+                                <textarea id="new-prod-desc" required rows="2" placeholder="Fitur produk, jaminan, garansi..." class="w-full bg-gray-900 text-white rounded-xl p-3 text-xs border border-gray-800 outline-none focus:border-brand-500 resize-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-3 bg-purple-600 hover:bg-purple-500 text-white font-extrabold text-xs rounded-xl transition-all shadow-lg shadow-purple-600/30">
+                                Simpan Produk Baru
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Custom Products List -->
+                    <div class="bg-gray-950 p-5 rounded-2xl border border-gray-800">
+                        <h4 class="text-sm font-bold text-white mb-3">Daftar Produk Baru Tambahan</h4>
+                        <div id="admin-custom-products-list" class="space-y-2"></div>
+                    </div>
+                </div>
+
+                <!-- Admin Tab: Price Settings & Category Photo Upload -->
+                <div id="admin-sub-prices" class="space-y-6 hidden">
+                    <!-- Joki Config -->
+                    <div class="bg-gray-950 p-4 rounded-2xl border border-gray-800">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-sm font-bold text-amber-400"><i class="fa-solid fa-egg mr-1"></i> Joki AFK Steal Egg</h4>
+                            <label class="px-3 py-1.5 bg-gray-800 hover:bg-gray-700 text-[11px] text-white font-bold rounded-xl cursor-pointer transition-colors border border-gray-700">
+                                Upload Foto Header Joki
+                                <input type="file" accept="image/*" onchange="handleProductImageUpload(event, 'joki')" class="hidden">
+                            </label>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <div><label class="text-[11px] text-gray-400 block mb-1">3 Hari (Rp)</label><input type="number" id="price-joki-3d" class="w-full bg-gray-900 text-white rounded-xl p-2.5 text-xs border border-gray-800"></div>
+                            <div><label class="text-[11px] text-gray-400 block mb-1">5 Hari (Rp)</label><input type="number" id="price-joki-5d" class="w-full bg-gray-900 text-white rounded-lg p-2.5 text-xs border border-gray-800"></div>
+                            <div><label class="text-[11px] text-gray-400 block mb-1">7 Hari (Rp)</label><input type="number" id="price-joki-7d" class="w-full bg-gray-900 text-white rounded-lg p-2.5 text-xs border border-gray-800"></div>
+                            <div><label class="text-[11px] text-gray-400 block mb-1">10 Hari (Rp)</label><input type="number" id="price-joki-10d" class="w-full bg-gray-900 text-white rounded-lg p-2.5 text-xs border border-gray-800"></div>
+                        </div>
+                    </div>
+
+                    <!-- Roblox Config -->
+                    <div class="bg-gray-950 p-4 rounded-2xl border border-gray-800">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-sm font-bold text-emerald-400"><i class="fa-solid fa-gamepad mr-1"></i> Akun Roblox Legal</h4>
+                            <label class="px-3 py-1.5 bg-gray-800 hover:bg-gray-700 text-[11px] text-white font-bold rounded-xl cursor-pointer transition-colors border border-gray-700">
+                                Upload Foto Header Roblox
+                                <input type="file" accept="image/*" onchange="handleProductImageUpload(event, 'roblox')" class="hidden">
+                            </label>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div><label class="text-[11px] text-gray-400 block mb-1">Akun 13+ (Rp)</label><input type="number" id="price-roblox-13" class="w-full bg-gray-900 text-white rounded-lg p-2.5 text-xs border border-gray-800"></div>
+                            <div><label class="text-[11px] text-gray-400 block mb-1">Akun 18+ (Rp)</label><input type="number" id="price-roblox-18" class="w-full bg-gray-900 text-white rounded-lg p-2.5 text-xs border border-gray-800"></div>
+                            <div><label class="text-[11px] text-gray-400 block mb-1">Akun 21+ (Rp)</label><input type="number" id="price-roblox-21" class="w-full bg-gray-900 text-white rounded-lg p-2.5 text-xs border border-gray-800"></div>
+                        </div>
+                    </div>
+
+                    <!-- Verif Config -->
+                    <div class="bg-gray-950 p-4 rounded-2xl border border-gray-800">
+                        <div class="flex justify-between items-center mb-3">
+                            <h4 class="text-sm font-bold text-cyan-400"><i class="fa-solid fa-user-shield mr-1"></i> Verifikasi Roblox</h4>
+                            <label class="px-3 py-1.5 bg-gray-800 hover:bg-gray-700 text-[11px] text-white font-bold rounded-xl cursor-pointer transition-colors border border-gray-700">
+                                Upload Foto Header Verif
+                                <input type="file" accept="image/*" onchange="handleProductImageUpload(event, 'verif')" class="hidden">
+                            </label>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <div><label class="text-[11px] text-gray-400 block mb-1">Verif 16+</label><input type="number" id="price-verif-16" class="w-full bg-gray-900 text-white rounded-lg p-2.5 text-xs border border-gray-800"></div>
+                            <div><label class="text-[11px] text-gray-400 block mb-1">Verif 18+</label><input type="number" id="price-verif-18" class="w-full bg-gray-900 text-white rounded-lg p-2.5 text-xs border border-gray-800"></div>
+                            <div><label class="text-[11px] text-gray-400 block mb-1">Verif 21+</label><input type="number" id="price-verif-21" class="w-full bg-gray-900 text-white rounded-lg p-2.5 text-xs border border-gray-800"></div>
+                            <div><label class="text-[11px] text-gray-400 block mb-1">Verif 30+</label><input type="number" id="price-verif-30" class="w-full bg-gray-900 text-white rounded-lg p-2.5 text-xs border border-gray-800"></div>
+                        </div>
+                    </div>
+
+                    <button onclick="saveAdminPriceConfig()" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl transition-all shadow-lg shadow-emerald-600/30">
+                        Simpan Semua Perubahan Harga
+                    </button>
+                </div>
+
+                <!-- Admin Tab: QRIS & CS Settings -->
+                <div id="admin-sub-qris" class="space-y-4 hidden">
+                    <div class="bg-gray-950 p-4 rounded-2xl border border-gray-800 space-y-3">
+                        <label class="block text-xs font-bold text-amber-400 uppercase tracking-wider mb-1">
+                            <i class="fa-solid fa-image mr-1"></i> Wallpaper Background Toko
+                        </label>
+                        <input type="file" id="admin-bg-file-input" accept="image/*" onchange="handleBgFileUpload(event)" class="w-full bg-gray-900 text-gray-300 rounded-xl p-2 border border-gray-800 text-xs">
+                    </div>
+
+                    <div class="bg-gray-950 p-4 rounded-2xl border border-gray-800 space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-indigo-400 uppercase tracking-wider mb-2">
+                                <i class="fa-solid fa-qrcode mr-1"></i> Upload Foto Kode QRIS
+                            </label>
+                            <input type="file" id="admin-qris-file-input" accept="image/*" onchange="handleQrisFileUpload(event)" class="w-full bg-gray-900 text-gray-300 rounded-xl p-2 border border-gray-800 text-xs">
+                        </div>
+
+                        <div class="flex items-center gap-4 pt-2">
+                            <div class="w-24 h-24 rounded-xl bg-gray-900 border border-gray-800 p-1 flex items-center justify-center shrink-0 overflow-hidden">
+                                <img id="admin-qris-preview" src="" alt="Preview QRIS" class="max-w-full max-h-full object-contain rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-950 p-4 rounded-2xl border border-gray-800 space-y-3">
+                        <label class="block text-xs font-bold text-emerald-400 uppercase tracking-wider">Nomor WhatsApp Admin CS</label>
+                        <input type="text" id="admin-wa-number" value="6283129970042" class="w-full bg-gray-900 text-white rounded-xl px-4 py-3 border border-gray-800 text-xs">
+                    </div>
+
+                    <button onclick="saveAdminGeneralConfig()" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs rounded-xl transition-all shadow-lg shadow-emerald-600/20">
+                        Simpan Pengaturan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const DEFAULT_CONFIG = {
+            adminPin: 'NSYY1922OOP',
+            qrisUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=BloxZone_ID_QRIS_MERCHANT_6283129970042',
+            waNumber: '6283129970042',
+            bgImageUrl: '',
+            productImages: { joki: '', roblox: '', verif: '', nokos: '' },
+
+            jokiPrices: { "3": 15000, "5": 19000, "7": 24000, "10": 30000 },
+            
+            nokosPrices: {
+                "Indonesia 🇮🇩": { "WhatsApp": 8000, "Telegram": 7000, "Discord": 5000, "TikTok": 6000, "Gmail / Google": 4500, "Roblox": 6000, "ChatGPT / OpenAI": 9000, "Shopee": 7500 },
+                "United States 🇺🇸": { "WhatsApp": 12000, "Telegram": 10000, "Discord": 7000, "TikTok": 9000, "Gmail / Google": 6000, "Roblox": 8000, "ChatGPT / OpenAI": 11000, "Shopee": 10000 },
+                "Vietnam 🇻🇳": { "WhatsApp": 7500, "Telegram": 6500, "Discord": 4500, "TikTok": 5500, "Gmail / Google": 4000, "Roblox": 5500, "ChatGPT / OpenAI": 8500, "Shopee": 7000 }
+            },
+
+            robloxPrices: { "13+": 10000, "18+": 15000, "21+": 25000 },
+            verifPrices: { "16+": 7000, "18+": 10000, "21+": 23000, "30+": 30000 },
+            customProducts: []
+        };
+
+        let storeConfig = JSON.parse(localStorage.getItem('ntyy_store_config')) || DEFAULT_CONFIG;
+        
+        if (!storeConfig.productImages) storeConfig.productImages = { joki: '', roblox: '', verif: '', nokos: '' };
+        if (!storeConfig.customProducts) storeConfig.customProducts = [];
+        if (!storeConfig.adminPin) storeConfig.adminPin = 'NSYY1922OOP';
+        
+        localStorage.setItem('ntyy_store_config', JSON.stringify(storeConfig));
+
+        let ordersHistory = JSON.parse(localStorage.getItem('ntyy_orders_history')) || [];
+        let currentCheckoutOrder = null;
+        let countdownTimerInterval = null;
+        let selectedProductMeta = null;
+        let audioCtx = null;
+        let isBgmPlaying = false;
+        let bgmInterval = null;
+
+        function getAudioContext() {
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            return audioCtx;
+        }
+
+        function playClickSound() {
+            try {
+                const ctx = getAudioContext();
+                if (!ctx) return;
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(800, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(200, ctx.currentTime + 0.05);
+                gain.gain.setValueAtTime(0.12, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.05);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.05);
+            } catch(e) {}
+        }
+
+        function toggleBGM() {
+            isBgmPlaying = !isBgmPlaying;
+            const btnText = document.getElementById('bgm-status-text');
+            const icon = document.getElementById('bgm-icon');
+            
+            if (isBgmPlaying) {
+                if (btnText) btnText.textContent = "Musik ON";
+                if (icon) icon.className = "fa-solid fa-music text-purple-400 animate-bounce";
+                playBgmLoop();
+                showToast("Musik Toko Aktif 🎵");
+            } else {
+                if (btnText) btnText.textContent = "Musik OFF";
+                if (icon) icon.className = "fa-solid fa-volume-xmark text-gray-400";
+                stopBgmLoop();
+                showToast("Musik Toko Nonaktif");
+            }
+        }
+
+        function playBgmLoop() {
+            stopBgmLoop();
+            const notes = [261.63, 329.63, 392.00, 493.88, 523.25, 440.00];
+            let noteIdx = 0;
+            bgmInterval = setInterval(() => {
+                if (!isBgmPlaying) return;
+                try {
+                    const ctx = getAudioContext();
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(notes[noteIdx % notes.length], ctx.currentTime);
+                    gain.gain.setValueAtTime(0.02, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.8);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start();
+                    osc.stop(ctx.currentTime + 0.8);
+                    noteIdx++;
+                } catch(e) {}
+            }, 600);
+        }
+
+        function stopBgmLoop() {
+            if (bgmInterval) { clearInterval(bgmInterval); bgmInterval = null; }
+        }
+
+        function showToast(message, type = 'success') {
+            let container = document.getElementById('toast-container');
+            if (!container) {
+                container = document.createElement('div');
+                container.id = 'toast-container';
+                container.className = 'fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm pointer-events-none';
+                document.body.appendChild(container);
+            }
+            const toast = document.createElement('div');
+            const bg = type === 'error' ? 'bg-red-950/90 border-red-500/50 text-red-200' : 'bg-gray-900/90 border-emerald-500/50 text-emerald-200';
+            const icon = type === 'error' ? 'fa-circle-exclamation text-red-400' : 'fa-circle-check text-emerald-400';
+            
+            toast.className = `p-3.5 rounded-2xl border backdrop-blur-md text-xs font-bold shadow-2xl flex items-center gap-3 transition-all duration-300 transform translate-y-4 opacity-0 pointer-events-auto ${bg}`;
+            toast.innerHTML = `<i class="fa-solid ${icon} text-base"></i><span>${message}</span>`;
+            
+            container.appendChild(toast);
+            setTimeout(() => toast.classList.remove('translate-y-4', 'opacity-0'), 10);
+            setTimeout(() => {
+                toast.classList.add('translate-y-4', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function applyBackgroundWallpaper() {
+            const bgContainer = document.getElementById('bg-wallpaper-container');
+            if (bgContainer) {
+                if (storeConfig.bgImageUrl) {
+                    bgContainer.style.backgroundImage = `url('${storeConfig.bgImageUrl}')`;
+                    bgContainer.classList.remove('hidden');
+                } else {
+                    bgContainer.style.backgroundImage = 'none';
+                }
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            applyBackgroundWallpaper();
+            updateWALinks();
+            renderJokiCards();
+            populateNokosDropdowns();
+            renderRobloxCards();
+            renderVerificationCards();
+            renderCustomProducts();
+            updateNokosPrice();
+            calculateCustomJokiPrice();
+
+            document.querySelectorAll('button').forEach(btn => {
+                btn.addEventListener('click', () => playClickSound());
+            });
+        });
+
+        function updateWALinks() {
+            const number = storeConfig.waNumber || '6283129970042';
+            const link = `https://wa.me/${number}`;
+            const headerLink = document.getElementById('header-wa-link');
+            const footerLink = document.getElementById('footer-wa-link');
+            if (headerLink) headerLink.href = link;
+            if (footerLink) footerLink.href = link;
+        }
+
+        function renderJokiCards() {
+            const container = document.getElementById('joki-cards-container');
+            if (!container) return;
+            container.innerHTML = '';
+            const imgHtml = storeConfig.productImages.joki ? `<img src="${storeConfig.productImages.joki}" class="product-img-header" alt="Joki Image">` : '';
+
+            const packages = [
+                { days: '3', label: '3 Hari', badge: 'Basic' },
+                { days: '5', label: '5 Hari', badge: 'Hemat' },
+                { days: '7', label: '7 Hari', badge: 'Populer' },
+                { days: '10', label: '10 Hari', badge: 'Sultan' }
+            ];
+
+            packages.forEach(pkg => {
+                const price = storeConfig.jokiPrices[pkg.days] || 15000;
+                container.innerHTML += `
+                    <div class="glass-card rounded-3xl flex flex-col justify-between border border-amber-500/20 hover:border-amber-500/50 transition-all p-0">
+                        ${imgHtml}
+                        <div class="p-5">
+                            <span class="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-2 inline-block">
+                                ${pkg.badge}
+                            </span>
+                            <h3 class="text-lg font-extrabold text-white">Joki Steal Egg (${pkg.days} Hari)</h3>
+                            <ul class="mt-3 space-y-2 text-xs text-gray-300">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Standby Server 24/7</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Garansi Penuh</li>
+                            </ul>
+                        </div>
+                        <div class="px-5 pb-5 pt-3 border-t border-gray-800/80 flex items-center justify-between">
+                            <div>
+                                <div class="text-[10px] text-gray-400">Harga Paket</div>
+                                <div class="text-lg font-black text-amber-400">${formatRupiah(price)}</div>
+                            </div>
+                            <button onclick="initiateJokiPurchase('${pkg.days}', ${price})" class="px-4 py-2 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white font-bold text-xs rounded-xl shadow-lg shadow-amber-500/30 flex items-center gap-2">
+                                <i class="fa-solid fa-cart-shopping"></i> Beli
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function renderRobloxCards() {
+            const container = document.getElementById('roblox-cards-container');
+            if (!container) return;
+            container.innerHTML = '';
+            const imgHtml = storeConfig.productImages.roblox ? `<img src="${storeConfig.productImages.roblox}" class="product-img-header" alt="Roblox Image">` : '';
+
+            const tiers = [
+                { age: '13+', key: '13+', badge: 'Starter', desc: 'Cocok untuk pemain pemula/alt account.' },
+                { age: '18+', key: '18+', badge: 'Reguler', desc: 'Fitur standar usia 18+, siap pakai.' },
+                { age: '21+', key: '21+', badge: 'Premium', desc: 'Akses penuh tanpa batasan fitur.' }
+            ];
+
+            tiers.forEach(tier => {
+                const price = storeConfig.robloxPrices[tier.key] || 10000;
+                container.innerHTML += `
+                    <div class="glass-card rounded-3xl flex flex-col justify-between border border-gray-800 p-0">
+                        ${imgHtml}
+                        <div class="p-5">
+                            <span class="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-2 inline-block">
+                                ${tier.badge}
+                            </span>
+                            <h3 class="text-lg font-extrabold text-white">Akun Roblox Polos (${tier.age})</h3>
+                            <p class="text-[11px] text-gray-400 mt-1">${tier.desc}</p>
+                        </div>
+                        <div class="px-5 pb-5 pt-3 border-t border-gray-800/80 flex items-center justify-between">
+                            <div>
+                                <div class="text-[10px] text-gray-400">Harga Produk</div>
+                                <div class="text-lg font-black text-emerald-400">${formatRupiah(price)}</div>
+                            </div>
+                            <button onclick="initiateRobloxPurchase('${tier.age}', ${price})" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-emerald-600/30">
+                                Beli Akun
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function renderVerificationCards() {
+            const container = document.getElementById('verification-cards-container');
+            if (!container) return;
+            container.innerHTML = '';
+            const imgHtml = storeConfig.productImages.verif ? `<img src="${storeConfig.productImages.verif}" class="product-img-header" alt="Verif Image">` : '';
+
+            const services = [
+                { age: '16+', key: '16+', badge: 'Prosedur Resmi' },
+                { age: '18+', key: '18+', badge: 'Prosedur Resmi' },
+                { age: '21+', key: '21+', badge: 'Prosedur Resmi' },
+                { age: '30+', key: '30+', badge: 'Prosedur Resmi' }
+            ];
+
+            services.forEach(srv => {
+                const price = storeConfig.verifPrices[srv.key] || 7000;
+                container.innerHTML += `
+                    <div class="glass-card rounded-3xl flex flex-col justify-between border border-gray-800 p-0">
+                        ${imgHtml}
+                        <div class="p-5">
+                            <span class="text-[10px] font-bold text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20 mb-2 inline-block">
+                                ${srv.badge}
+                            </span>
+                            <h3 class="text-base font-extrabold text-white">Bantuan Verifikasi ${srv.age}</h3>
+                        </div>
+                        <div class="px-5 pb-5 border-t border-gray-800 pt-3 flex items-center justify-between">
+                            <div>
+                                <div class="text-[10px] text-gray-400">Biaya Jasa</div>
+                                <div class="text-base font-black text-cyan-400">${formatRupiah(price)}</div>
+                            </div>
+                            <button onclick="initiateVerifPurchase('${srv.age}', ${price})" class="px-3 py-1.5 bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-cyan-600/30">
+                                Pesan Jasa
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function renderCustomProducts() {
+            const container = document.getElementById('custom-products-container');
+            const adminList = document.getElementById('admin-custom-products-list');
+            if (!container) return;
+            container.innerHTML = '';
+            if (adminList) adminList.innerHTML = '';
+
+            if (storeConfig.customProducts.length === 0) {
+                container.innerHTML = `<div class="col-span-full p-8 text-center text-gray-500 bg-gray-900/50 rounded-3xl border border-gray-800">Belum ada produk tambahan khusus dari admin.</div>`;
+                if (adminList) adminList.innerHTML = `<p class="text-xs text-gray-500">Belum ada produk tambahan.</p>`;
+                return;
+            }
+
+            storeConfig.customProducts.forEach((prod, index) => {
+                const imgHtml = prod.image ? `<img src="${prod.image}" class="product-img-header" alt="${prod.name}">` : '';
+
+                container.innerHTML += `
+                    <div class="glass-card rounded-3xl flex flex-col justify-between border border-purple-500/20 p-0">
+                        ${imgHtml}
+                        <div class="p-5">
+                            <span class="text-[10px] font-bold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20 mb-2 inline-block uppercase">
+                                ${prod.category}
+                            </span>
+                            <h3 class="text-base font-extrabold text-white">${prod.name}</h3>
+                            <p class="text-[11px] text-gray-400 mt-1 leading-relaxed">${prod.desc}</p>
+                        </div>
+                        <div class="px-5 pb-5 border-t border-gray-800 pt-3 flex items-center justify-between">
+                            <div>
+                                <div class="text-[10px] text-gray-400">Harga</div>
+                                <div class="text-base font-black text-purple-400">${formatRupiah(prod.price)}</div>
+                            </div>
+                            <button onclick="initiateCustomProductPurchase(${index})" class="px-3.5 py-2 bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-purple-600/30">
+                                Beli
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                if (adminList) {
+                    adminList.innerHTML += `
+                        <div class="flex items-center justify-between p-3 bg-gray-900 rounded-xl border border-gray-800 text-xs">
+                            <div>
+                                <span class="font-bold text-white">${prod.name}</span>
+                                <span class="text-purple-400 ml-2 font-mono">${formatRupiah(prod.price)}</span>
+                            </div>
+                            <button onclick="deleteCustomProduct(${index})" class="text-red-400 hover:text-red-300 font-bold text-xs px-2 py-1 bg-red-500/10 rounded">
+                                Hapus
+                            </button>
+                        </div>
+                    `;
+                }
+            });
+        }
+
+        function calculateCustomJokiPrice() {
+            const input = document.getElementById('custom-joki-days');
+            if (!input) return 5000;
+            let days = parseInt(input.value) || 1;
+            if (days < 1) days = 1; if (days > 30) days = 30;
+
+            let calculatedPrice = 0;
+            if (days <= 3) calculatedPrice = days * (storeConfig.jokiPrices["3"] / 3);
+            else if (days <= 5) calculatedPrice = days * (storeConfig.jokiPrices["5"] / 5);
+            else if (days <= 7) calculatedPrice = days * (storeConfig.jokiPrices["7"] / 7);
+            else calculatedPrice = days * (storeConfig.jokiPrices["10"] / 10);
+
+            calculatedPrice = Math.round(calculatedPrice / 500) * 500;
+            const display = document.getElementById('custom-joki-calculated-price');
+            if (display) display.textContent = formatRupiah(calculatedPrice);
+            return calculatedPrice;
+        }
+
+        function switchTab(tab) {
+            playClickSound();
+            ['nokos-section', 'roblox-section', 'joki-section', 'verification-section', 'custom-section'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.classList.add('hidden');
+            });
+            ['nokos', 'roblox', 'joki', 'verification', 'custom'].forEach(t => {
+                const btn = document.getElementById(`tab-btn-${t}`);
+                if (btn) btn.className = "tab-btn px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm transition-all flex items-center gap-2 bg-gray-900/80 text-gray-400 hover:text-white border border-gray-800";
+            });
+
+            const targetSection = document.getElementById(`${tab}-section`);
+            if (targetSection) targetSection.classList.remove('hidden');
+
+            const activeBtn = document.getElementById(`tab-btn-${tab}`);
+            if (activeBtn) {
+                if (tab === 'joki') activeBtn.className = "tab-btn px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm transition-all flex items-center gap-2 bg-gradient-to-r from-amber-600 to-amber-500 text-white shadow-lg shadow-amber-500/25";
+                else activeBtn.className = "tab-btn px-5 py-2.5 rounded-2xl font-bold text-xs sm:text-sm transition-all flex items-center gap-2 bg-gradient-to-r from-brand-600 to-indigo-600 text-white shadow-lg shadow-indigo-500/25";
+            }
+        }
+
+        function scrollToSection(id) {
+            if (id === 'joki-section') switchTab('joki');
+            if (id === 'nokos-section') switchTab('nokos');
+            if (id === 'roblox-section') switchTab('roblox');
+            if (id === 'verification-section') switchTab('verification');
+            if (id === 'custom-section') switchTab('custom');
+            const target = document.getElementById(id);
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function populateNokosDropdowns() {
+            const countrySelect = document.getElementById('nokos-country-select');
+            const appSelect = document.getElementById('nokos-app-select');
+            const quickList = document.getElementById('nokos-quick-list');
+            const bannerContainer = document.getElementById('nokos-banner-container');
+            const bannerImg = document.getElementById('nokos-banner-img');
+
+            if (!countrySelect || !appSelect || !quickList) return;
+
+            if (storeConfig.productImages.nokos) {
+                bannerImg.src = storeConfig.productImages.nokos;
+                bannerContainer.classList.remove('hidden');
+            } else {
+                bannerContainer.classList.add('hidden');
+            }
+
+            countrySelect.innerHTML = '';
+            appSelect.innerHTML = '';
+            quickList.innerHTML = '';
+
+            Object.keys(storeConfig.nokosPrices).forEach(country => {
+                const opt = document.createElement('option');
+                opt.value = country; opt.textContent = country;
+                countrySelect.appendChild(opt);
+            });
+
+            const sampleCountry = Object.keys(storeConfig.nokosPrices)[0];
+            const apps = Object.keys(storeConfig.nokosPrices[sampleCountry]);
+
+            apps.forEach(app => {
+                const opt = document.createElement('option');
+                opt.value = app; opt.textContent = app;
+                appSelect.appendChild(opt);
+            });
+
+            const quickApps = ['WhatsApp', 'Telegram', 'TikTok', 'ChatGPT / OpenAI', 'Gmail / Google', 'Discord'];
+            quickApps.forEach(app => {
+                const price = storeConfig.nokosPrices["Indonesia 🇮🇩"] ? (storeConfig.nokosPrices["Indonesia 🇮🇩"][app] || 8000) : 8000;
+                quickList.innerHTML += `
+                    <button onclick="selectQuickNokos('${app}')" class="p-3 bg-gray-900/90 hover:bg-gray-800/80 rounded-2xl border border-gray-800/80 text-left transition-all hover:scale-105">
+                        <div class="text-xs font-bold text-white">${app}</div>
+                        <div class="text-[10px] text-indigo-400 font-medium mt-1">Mulai ${formatRupiah(price)}</div>
+                    </button>
+                `;
+            });
+        }
+
+        function selectQuickNokos(appName) {
+            playClickSound();
+            const appSelect = document.getElementById('nokos-app-select');
+            if (appSelect) { appSelect.value = appName; updateNokosPrice(); }
+        }
+
+        function updateNokosPrice() {
+            const countrySelect = document.getElementById('nokos-country-select');
+            const appSelect = document.getElementById('nokos-app-select');
+            if (!countrySelect || !appSelect) return;
+            const country = countrySelect.value;
+            const app = appSelect.value;
+            let price = 8000;
+            if (storeConfig.nokosPrices[country] && storeConfig.nokosPrices[country][app]) price = storeConfig.nokosPrices[country][app];
+            const displayEl = document.getElementById('nokos-calculated-price');
+            if (displayEl) displayEl.textContent = formatRupiah(price);
+        }
+
+        function initiateJokiPurchase(days, price) {
+            playClickSound();
+            selectedProductMeta = { category: 'Joki AFK Steal an Egg', name: `Joki AFK (${days} Hari)`, detail: `Durasi: ${days} Hari`, price: price, type: 'joki' };
+            openCheckoutModal();
+        }
+        function initiateCustomJokiPurchase() {
+            playClickSound();
+            const days = parseInt(document.getElementById('custom-joki-days').value) || 1;
+            selectedProductMeta = { category: 'Joki AFK Custom', name: `Joki Custom (${days} Hari)`, detail: `Durasi ${days} Hari`, price: calculateCustomJokiPrice(), type: 'joki' };
+            openCheckoutModal();
+        }
+        function initiateNokosPurchase() {
+            playClickSound();
+            const country = document.getElementById('nokos-country-select').value;
+            const app = document.getElementById('nokos-app-select').value;
+            let price = 8000;
+            if (storeConfig.nokosPrices[country] && storeConfig.nokosPrices[country][app]) price = storeConfig.nokosPrices[country][app];
+            selectedProductMeta = { category: 'NOKOS / Virtual', name: `NOKOS ${app}`, detail: `Negara: ${country}`, price: price, type: 'nokos' };
+            openCheckoutModal();
+        }
+        function initiateRobloxPurchase(ageGroup, price) {
+            playClickSound();
+            selectedProductMeta = { category: 'Akun Roblox Legal', name: `Akun Roblox (${ageGroup})`, detail: `Rentang Usia: ${ageGroup}`, price: price, type: 'roblox' };
+            openCheckoutModal();
+        }
+        function initiateVerifPurchase(ageGroup, price) {
+            playClickSound();
+            selectedProductMeta = { category: 'Verifikasi Roblox', name: `Verifikasi Usia ${ageGroup}`, detail: `Bantuan Respon Resmi`, price: price, type: 'verif' };
+            openCheckoutModal();
+        }
+        function initiateCustomProductPurchase(index) {
+            playClickSound();
+            const prod = storeConfig.customProducts[index];
+            if (!prod) return;
+            selectedProductMeta = { category: prod.category.toUpperCase(), name: prod.name, detail: prod.desc, price: prod.price, type: prod.category };
+            openCheckoutModal();
+        }
+
+        function openCheckoutModal() {
+            if (!selectedProductMeta) return;
+            document.getElementById('summary-category').textContent = selectedProductMeta.category;
+            document.getElementById('summary-product-name').textContent = selectedProductMeta.name;
+            document.getElementById('summary-detail-text').textContent = selectedProductMeta.detail;
+            document.getElementById('summary-price').textContent = formatRupiah(selectedProductMeta.price);
+
+            document.getElementById('checkout-step-1').classList.remove('hidden');
+            document.getElementById('checkout-step-2').classList.add('hidden');
+            document.getElementById('checkout-step-3').classList.add('hidden');
+            document.getElementById('checkout-modal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+            if (countdownTimerInterval) clearInterval(countdownTimerInterval);
+        }
+
+        function submitOrderForm(e) {
+            e.preventDefault();
+            const name = document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const orderId = 'BZ-' + Math.floor(100000 + Math.random() * 900000);
+
+            currentCheckoutOrder = {
+                id: orderId,
+                customerName: name,
+                customerPhone: phone,
+                productCategory: selectedProductMeta.category,
+                productName: selectedProductMeta.name,
+                type: selectedProductMeta.type,
+                totalPrice: selectedProductMeta.price,
+                status: 'Menunggu Pembayaran',
+                createdAt: new Date().toISOString(),
+                accountData: null
+            };
+
+            document.getElementById('active-order-id').textContent = orderId;
+            document.getElementById('active-order-total').textContent = formatRupiah(selectedProductMeta.price);
+            document.getElementById('qris-image-display').src = storeConfig.qrisUrl;
+
+            document.getElementById('checkout-step-1').classList.add('hidden');
+            document.getElementById('checkout-step-2').classList.remove('hidden');
+
+            ordersHistory.unshift(currentCheckoutOrder);
+            saveOrdersHistory();
+            startTimer(600);
+        }
+
+        function startTimer(durationSeconds) {
+            if (countdownTimerInterval) clearInterval(countdownTimerInterval);
+            let timer = durationSeconds;
+            const timerDisplay = document.getElementById('payment-timer');
+
+            countdownTimerInterval = setInterval(() => {
+                const minutes = parseInt(timer / 60, 10);
+                const seconds = parseInt(timer % 60, 10);
+                if (timerDisplay) timerDisplay.textContent = `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+                if (--timer < 0) {
+                    clearInterval(countdownTimerInterval);
+                    if (timerDisplay) timerDisplay.textContent = "KEDALUWARSA";
+                    if (currentCheckoutOrder && currentCheckoutOrder.status === 'Menunggu Pembayaran') {
+                        currentCheckoutOrder.status = 'Pembayaran Kedaluwarsa';
+                        saveOrdersHistory();
+                    }
+                }
+            }, 1000);
+        }
+
+        function simulatePaymentSuccess() {
+            if (!currentCheckoutOrder) return;
+            if (countdownTimerInterval) clearInterval(countdownTimerInterval);
+
+            document.getElementById('checkout-step-2').classList.add('hidden');
+            document.getElementById('checkout-step-3').classList.remove('hidden');
+
+            const isJokiOrVerif = currentCheckoutOrder.type === 'joki' || currentCheckoutOrder.type === 'verif';
+
+            if (isJokiOrVerif) {
+                // Force input form for Username, Password, Gmail, and Admin Message
+                currentCheckoutOrder.status = 'Masih Tunggu (Isi Data)';
+                document.getElementById('account-data-form').classList.remove('hidden');
+                document.getElementById('claim-wa-container').classList.add('hidden');
+            } else {
+                currentCheckoutOrder.status = 'Menunggu Pengiriman Admin';
+                document.getElementById('account-data-form').classList.add('hidden');
+                document.getElementById('claim-wa-container').classList.remove('hidden');
+                setupWARedirect(false);
+            }
+            saveOrdersHistory();
+            showToast('Pembayaran QRIS Berhasil Dikonfirmasi!');
+        }
+
+        function submitAccountData(e) {
+            e.preventDefault();
+            if(!currentCheckoutOrder) return;
+
+            const usn = document.getElementById('roblox-usn-input').value.trim();
+            const pw = document.getElementById('roblox-pw-input').value.trim();
+            const gmail = document.getElementById('roblox-gmail-input').value.trim();
+            const msg = document.getElementById('roblox-msg-input').value.trim();
+
+            currentCheckoutOrder.accountData = { username: usn, password: pw, gmail: gmail, message: msg };
+            currentCheckoutOrder.status = 'Masih Tunggu'; // Default status in queue for Admin
+            saveOrdersHistory();
+
+            document.getElementById('account-data-form').classList.add('hidden');
+            document.getElementById('claim-wa-container').classList.remove('hidden');
+            setupWARedirect(true);
+            showToast('Data akun berhasil disubmit ke sistem!');
+        }
+
+        function setupWARedirect(includeAccount = false) {
+            const number = storeConfig.waNumber || '6283129970042';
+            let waText = `Halo Admin BloxZone ID,\nSaya sudah melakukan pembayaran QRIS.\n\n📌 *DETAIL ORDERS*\n- ID Order: ${currentCheckoutOrder.id}\n- Pembeli: ${currentCheckoutOrder.customerName}\n- Produk: ${currentCheckoutOrder.productName}\n- Total: ${formatRupiah(currentCheckoutOrder.totalPrice)}\n- Status: ${currentCheckoutOrder.status}`;
+            
+            if (includeAccount && currentCheckoutOrder.accountData) {
+                waText += `\n\n📌 *DATA AKUN TERKIRIM*\n- Username: ${currentCheckoutOrder.accountData.username}\n- Password: ${currentCheckoutOrder.accountData.password}\n- Email/Gmail: ${currentCheckoutOrder.accountData.gmail}\n- Pesan: ${currentCheckoutOrder.accountData.message || '-'}\n\nMohon segera diproses. Terima kasih!`;
+            }
+
+            document.getElementById('wa-redirect-btn').href = `https://wa.me/${number}?text=${encodeURIComponent(waText)}`;
+        }
+
+        function saveOrdersHistory() {
+            localStorage.setItem('ntyy_orders_history', JSON.stringify(ordersHistory));
+        }
+
+        function openCheckOrderModal() {
+            document.getElementById('check-order-modal').classList.remove('hidden');
+            document.getElementById('order-search-result').classList.add('hidden');
+        }
+        function closeCheckOrderModal() {
+            document.getElementById('check-order-modal').classList.add('hidden');
+        }
+
+        function performOrderSearch() {
+            const query = document.getElementById('search-order-input').value.trim().toUpperCase();
+            const resultBox = document.getElementById('order-search-result');
+            if (!query) return;
+
+            const order = ordersHistory.find(o => o.id === query);
+            resultBox.classList.remove('hidden');
+
+            if (!order) {
+                resultBox.innerHTML = `<div class="p-4 bg-red-500/10 border border-red-500/20 rounded-2xl text-red-400 text-xs text-center font-bold">Order ID tidak ditemukan dalam database.</div>`;
+                return;
+            }
+
+            let badgeStyle = "bg-amber-500/10 text-amber-400 border-amber-500/30";
+            let statusText = order.status;
+
+            if (order.status.includes('Lagi Di Proses') || order.status.includes('Sedang Diproses')) {
+                badgeStyle = "bg-brand-500/20 text-indigo-300 border-brand-500/40 animate-pulse";
+                statusText = "⚡ LAGI DI PROSES";
+            } else if (order.status.includes('Masih Tunggu')) {
+                badgeStyle = "bg-amber-500/20 text-amber-300 border-amber-500/40";
+                statusText = "⏳ MASIH TUNGGU (ANTRIAN)";
+            } else if (order.status.includes('Selesai')) {
+                badgeStyle = "bg-emerald-500/20 text-emerald-300 border-emerald-500/40";
+                statusText = "✅ SELESAI";
+            }
+
+            let extraInfo = '';
+            if (order.accountData) {
+                extraInfo = `
+                    <div class="mt-3 p-3 bg-gray-900 rounded-xl border border-gray-800 text-[11px] space-y-1">
+                        <div class="text-amber-400 font-bold mb-1"><i class="fa-solid fa-lock mr-1"></i> Data Akun Terdaftar:</div>
+                        <div class="text-gray-300">Usn: <span class="font-mono text-white">${order.accountData.username}</span></div>
+                        <div class="text-gray-300">Gmail: <span class="font-mono text-white">${order.accountData.gmail}</span></div>
+                    </div>
+                `;
+            }
+
+            resultBox.innerHTML = `
+                <div class="bg-gray-950 p-4 rounded-2xl border border-gray-800 space-y-3 text-xs">
+                    <div class="flex justify-between items-center pb-2 border-b border-gray-900">
+                        <span class="font-mono font-bold text-indigo-400">${order.id}</span>
+                        <span class="px-2.5 py-1 rounded-full border text-[10px] font-black ${badgeStyle}">${statusText}</span>
+                    </div>
+                    <div><div class="text-gray-400">Pembeli:</div><div class="text-white font-bold">${order.customerName}</div></div>
+                    <div><div class="text-gray-400">Produk:</div><div class="text-white font-bold">${order.productName}</div></div>
+                    <div><div class="text-gray-400">Total Biaya:</div><div class="text-emerald-400 font-extrabold text-sm">${formatRupiah(order.totalPrice)}</div></div>
+                    ${extraInfo}
+                </div>
+            `;
+        }
+
+        function openAdminModal() { document.getElementById('admin-modal').classList.remove('hidden'); }
+        function closeAdminModal() { document.getElementById('admin-modal').classList.add('hidden'); }
+
+        function verifyAdminPin() {
+            const pin = document.getElementById('admin-pin-input').value.trim();
+            if (pin === storeConfig.adminPin) {
+                document.getElementById('admin-auth-gate').classList.add('hidden');
+                document.getElementById('admin-dashboard-content').classList.remove('hidden');
+                loadAdminFields();
+                renderAdminOrdersTable();
+                showToast('Login Admin Berhasil!');
+            } else showToast('PIN Admin salah!', 'error');
+        }
+
+        function logoutAdmin() {
+            document.getElementById('admin-auth-gate').classList.remove('hidden');
+            document.getElementById('admin-dashboard-content').classList.add('hidden');
+            document.getElementById('admin-pin-input').value = '';
+        }
+
+        function switchAdminTab(tab) {
+            document.querySelectorAll('#admin-sub-orders, #admin-sub-add-product, #admin-sub-prices, #admin-sub-qris').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('#admin-tab-orders, #admin-tab-add-product, #admin-tab-prices, #admin-tab-qris').forEach(btn => btn.className = "px-4 py-2 rounded-xl text-xs font-bold bg-gray-900 text-gray-400 hover:text-white whitespace-nowrap");
+            
+            document.getElementById(`admin-sub-${tab}`).classList.remove('hidden');
+            document.getElementById(`admin-tab-${tab}`).className = "px-4 py-2 rounded-xl text-xs font-bold bg-brand-600 text-white whitespace-nowrap";
+            
+            if (tab === 'orders') renderAdminOrdersTable();
+            if (tab === 'add-product') renderCustomProducts();
+        }
+
+        function handleAddNewProduct(e) {
+            e.preventDefault();
+            const name = document.getElementById('new-prod-name').value.trim();
+            const price = parseInt(document.getElementById('new-prod-price').value) || 0;
+            const category = document.getElementById('new-prod-category').value;
+            const desc = document.getElementById('new-prod-desc').value.trim();
+            const imgInput = document.getElementById('new-prod-image');
+
+            const newProd = { id: Date.now(), name, price, category, desc, image: '' };
+
+            if (imgInput.files && imgInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(evt) {
+                    newProd.image = evt.target.result;
+                    storeConfig.customProducts.unshift(newProd);
+                    localStorage.setItem('ntyy_store_config', JSON.stringify(storeConfig));
+                    showToast('Produk Baru Berhasil Ditambahkan!');
+                    e.target.reset();
+                    renderCustomProducts();
+                };
+                reader.readAsDataURL(imgInput.files[0]);
+            } else {
+                storeConfig.customProducts.unshift(newProd);
+                localStorage.setItem('ntyy_store_config', JSON.stringify(storeConfig));
+                showToast('Produk Baru Berhasil Ditambahkan!');
+                e.target.reset();
+                renderCustomProducts();
+            }
+        }
+
+        function deleteCustomProduct(index) {
+            storeConfig.customProducts.splice(index, 1);
+            localStorage.setItem('ntyy_store_config', JSON.stringify(storeConfig));
+            showToast('Produk berhasil dihapus!');
+            renderCustomProducts();
+        }
+
+        function handleProductImageUpload(event, category) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    storeConfig.productImages[category] = e.target.result;
+                    localStorage.setItem('ntyy_store_config', JSON.stringify(storeConfig));
+                    showToast(`Foto kategori ${category} berhasil diupload!`);
+                    if(category === 'joki') renderJokiCards();
+                    if(category === 'roblox') renderRobloxCards();
+                    if(category === 'verif') renderVerificationCards();
+                    if(category === 'nokos') populateNokosDropdowns();
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function loadAdminFields() {
+            document.getElementById('price-joki-3d').value = storeConfig.jokiPrices["3"];
+            document.getElementById('price-joki-5d').value = storeConfig.jokiPrices["5"];
+            document.getElementById('price-joki-7d').value = storeConfig.jokiPrices["7"];
+            document.getElementById('price-joki-10d').value = storeConfig.jokiPrices["10"];
+
+            document.getElementById('price-roblox-13').value = storeConfig.robloxPrices["13+"];
+            document.getElementById('price-roblox-18').value = storeConfig.robloxPrices["18+"];
+            document.getElementById('price-roblox-21').value = storeConfig.robloxPrices["21+"];
+
+            document.getElementById('price-verif-16').value = storeConfig.verifPrices["16+"];
+            document.getElementById('price-verif-18').value = storeConfig.verifPrices["18+"];
+            document.getElementById('price-verif-21').value = storeConfig.verifPrices["21+"];
+            document.getElementById('price-verif-30').value = storeConfig.verifPrices["30+"];
+
+            document.getElementById('admin-qris-preview').src = storeConfig.qrisUrl;
+            document.getElementById('admin-wa-number').value = storeConfig.waNumber || '6283129970042';
+        }
+
+        function saveAdminPriceConfig() {
+            storeConfig.jokiPrices["3"] = parseInt(document.getElementById('price-joki-3d').value) || 15000;
+            storeConfig.jokiPrices["5"] = parseInt(document.getElementById('price-joki-5d').value) || 19000;
+            storeConfig.jokiPrices["7"] = parseInt(document.getElementById('price-joki-7d').value) || 24000;
+            storeConfig.jokiPrices["10"] = parseInt(document.getElementById('price-joki-10d').value) || 30000;
+
+            storeConfig.robloxPrices["13+"] = parseInt(document.getElementById('price-roblox-13').value) || 10000;
+            storeConfig.robloxPrices["18+"] = parseInt(document.getElementById('price-roblox-18').value) || 15000;
+            storeConfig.robloxPrices["21+"] = parseInt(document.getElementById('price-roblox-21').value) || 25000;
+
+            storeConfig.verifPrices["16+"] = parseInt(document.getElementById('price-verif-16').value) || 7000;
+            storeConfig.verifPrices["18+"] = parseInt(document.getElementById('price-verif-18').value) || 10000;
+            storeConfig.verifPrices["21+"] = parseInt(document.getElementById('price-verif-21').value) || 23000;
+            storeConfig.verifPrices["30+"] = parseInt(document.getElementById('price-verif-30').value) || 30000;
+
+            localStorage.setItem('ntyy_store_config', JSON.stringify(storeConfig));
+            showToast('Harga berhasil disimpan!');
+            renderJokiCards(); calculateCustomJokiPrice(); renderRobloxCards(); renderVerificationCards();
+        }
+
+        function saveAdminGeneralConfig() {
+            storeConfig.waNumber = document.getElementById('admin-wa-number').value.trim();
+            localStorage.setItem('ntyy_store_config', JSON.stringify(storeConfig));
+            updateWALinks();
+            showToast('Pengaturan QRIS & WhatsApp berhasil disimpan!');
+        }
+
+        function handleQrisFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    storeConfig.qrisUrl = e.target.result;
+                    document.getElementById('admin-qris-preview').src = storeConfig.qrisUrl;
+                    localStorage.setItem('ntyy_store_config', JSON.stringify(storeConfig));
+                    showToast('QRIS berhasil diupload!');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function handleBgFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    storeConfig.bgImageUrl = e.target.result;
+                    localStorage.setItem('ntyy_store_config', JSON.stringify(storeConfig));
+                    applyBackgroundWallpaper();
+                    showToast('Wallpaper background diubah!');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function renderAdminOrdersTable() {
+            const tbody = document.getElementById('admin-orders-table-body');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+            if (ordersHistory.length === 0) { 
+                tbody.innerHTML = `<tr><td colspan="6" class="p-4 text-center text-gray-500">Belum ada riwayat pesanan.</td></tr>`; 
+                return; 
+            }
+
+            ordersHistory.forEach((ord, idx) => {
+                let accDataHtml = '<span class="text-gray-500 text-[10px]">Tanpa Data Akun</span>';
+                if (ord.accountData) {
+                    accDataHtml = `
+                        <div class="text-[10px] space-y-0.5">
+                            <div class="text-amber-400 font-mono font-bold">Usn: ${ord.accountData.username}</div>
+                            <div class="text-gray-300 font-mono">Pw: ${ord.accountData.password}</div>
+                            <div class="text-cyan-400 font-mono">Email: ${ord.accountData.gmail}</div>
+                            <div class="text-gray-400 italic">Pesan: "${ord.accountData.message || '-'}"</div>
+                        </div>
+                    `;
+                }
+
+                tbody.innerHTML += `
+                    <tr class="border-b border-gray-900 hover:bg-gray-900/50">
+                        <td class="p-3 font-mono font-bold text-indigo-400">${ord.id}</td>
+                        <td class="p-3 font-bold text-white">${ord.customerName}<br><span class="text-[10px] text-gray-400">${ord.customerPhone}</span></td>
+                        <td class="p-3 text-emerald-400 font-bold">${ord.productName}</td>
+                        <td class="p-3">${accDataHtml}</td>
+                        <td class="p-3">
+                            <span class="px-2 py-1 rounded text-[10px] font-extrabold bg-gray-800 text-amber-300 border border-amber-500/30">${ord.status}</span>
+                        </td>
+                        <td class="p-3 text-right space-x-1">
+                            <button onclick="updateOrderStatus(${idx}, 'Masih Tunggu')" class="px-2 py-1 bg-amber-600/30 text-amber-300 hover:bg-amber-600 rounded text-[10px] font-bold">Tunggu</button>
+                            <button onclick="updateOrderStatus(${idx}, 'Lagi Di Proses')" class="px-2 py-1 bg-indigo-600/30 text-indigo-300 hover:bg-indigo-600 rounded text-[10px] font-bold">Proses</button>
+                            <button onclick="updateOrderStatus(${idx}, 'Selesai')" class="px-2 py-1 bg-emerald-600/30 text-emerald-300 hover:bg-emerald-600 rounded text-[10px] font-bold">Selesai</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        function updateOrderStatus(index, newStatus) {
+            ordersHistory[index].status = newStatus;
+            saveOrdersHistory();
+            renderAdminOrdersTable();
+            showToast(`Status order ${ordersHistory[index].id} diperbarui ke "${newStatus}"!`);
+        }
+
+        function formatRupiah(num) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(num);
+        }
+    </script>
+</body>
+</html>
